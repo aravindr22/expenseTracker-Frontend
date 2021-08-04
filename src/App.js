@@ -8,12 +8,14 @@ import Landing from './components/landing/Landing';
 import Login from './components/auth/Login';
 import Signup from './components/auth/Signup';
 import NavbarC from './components/landing/NavbarC';
+import Alert from './components/Alert/Alert';
 
 function App() {
   return (
     <Provider store={store}>
       <Router>
         <NavbarC />
+        <Alert />
         <Route exact path="/" component={Landing} />
         <Switch>
           <Route exact path="/login" component={Login} />

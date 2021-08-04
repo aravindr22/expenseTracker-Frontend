@@ -1,11 +1,11 @@
 .loginform {
     position: absolute;
-    width: 100%;
     top: 13rem;
     z-index: 1;
     margin-top: auto;
     margin-left: 550px;
     text-align: center;
+    width: 100vh;
   }
 
 .formI{
