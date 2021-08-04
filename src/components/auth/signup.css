@@ -1,0 +1,9 @@
+.loginformS {
+    position: absolute;
+    width: 100%;
+    top: 10rem;
+    z-index: 1;
+    margin-top: auto;
+    margin-left: 550px;
+    text-align: center;
+  }
