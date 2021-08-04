@@ -1,6 +1,5 @@
 import axios from '../axios-base';
 import {setAlert} from './alert';
-import {fetchTransactionStats} from './transaction';
 import setAuthToken from '../utils/setAuthToken';
 
 import {
@@ -10,7 +9,8 @@ import {
     AUTH_ERROR,
     LOGOUT,
     REGISTR_SUCCESS,
-    REGISTR_FAIL
+    REGISTR_FAIL,
+    TRANSACTION_FAIL
 } from './types';
 
 //Load User
@@ -21,7 +21,6 @@ export const loadUSer = () => async dispatch => {
 
     try {
         const res = await axios.get('/api/user');
-        fetchTransactionStats();
         dispatch({
             type: USER_LOADED,
             payload: res.data
@@ -46,15 +45,14 @@ export const login = (email, password) => async dispatch => {
 
     try {
         const res = await axios.post('/api/auth/login', body, config);
-
         dispatch({
             type: LOGIN_SUCCESS,
             payload: res.data
         });
         dispatch(loadUSer());
     } catch(err) {
+        console.log(err)
         const errors = err.response.data.errors;
-
         if(errors){
             errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
         }
@@ -73,9 +71,15 @@ export const logout = () => async dispatch => {
         dispatch({
             type: LOGOUT
         });
+        dispatch({
+            type: TRANSACTION_FAIL
+        });
     } catch (err){
         dispatch({
             type: LOGOUT
+        });
+        dispatch({
+            type: TRANSACTION_FAIL
         });
     }
 }

@@ -1,0 +1,26 @@
+.dashboardPage{
+    margin-top: 70px;
+}
+
+.dashboardContainer{
+    margin-top: 80px;
+    width: 75%;
+    padding: 10px 0;
+    border-radius: 8px;
+    box-shadow: 10px 10px 25px -1px rgba(0,0,0,0.5);
+}
+
+.dashboardImage{
+    margin-left: 25px;
+    width: 70%;
+    height: 100%;
+}
+
+.dashboardPersonalDetail{
+    margin-top: 30px;
+    margin-left: 200px;
+}
+
+.dashboardPersonalDetail h4{
+    margin: 15px 0px;
+}

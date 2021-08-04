@@ -11,7 +11,7 @@ import {
 const initialState = {
     token: localStorage.getItem('token'),
     isAuthenticated: false,
-    loading: false,
+    loading: true,
     user: null
 };
 
@@ -19,12 +19,12 @@ export default function auth(state = initialState, action){
     const {type, payload} = action;
     switch(type){
         case LOGIN_SUCCESS:
+            localStorage.removeItem('token')
             localStorage.setItem('token', payload.authencationCode);
             return {
                 ...state,
                 token: payload.authencationCode,
                 isAuthenticated: true,
-                loading: false
             };
         case REGISTR_FAIL:
         case REGISTR_SUCCESS:
@@ -42,7 +42,8 @@ export default function auth(state = initialState, action){
         case USER_LOADED:
             return {
                 ...state,
-                user: payload
+                user: payload,
+                loading: false
             }
         default:
             return state;
