@@ -1,17 +1,49 @@
 import {
-
+    LOGIN_SUCCESS,
+    LOGIN_FAIL,
+    AUTH_ERROR,
+    LOGOUT,
+    USER_LOADED,
+    REGISTR_SUCCESS,
+    REGISTR_FAIL
 } from '../action/types';
 
 const initialState = {
     token: localStorage.getItem('token'),
-    isAuthenticated: null,
-    loading: true,
+    isAuthenticated: false,
+    loading: false,
     user: null
 };
 
 export default function auth(state = initialState, action){
     const {type, payload} = action;
     switch(type){
+        case LOGIN_SUCCESS:
+            localStorage.setItem('token', payload.authencationCode);
+            return {
+                ...state,
+                token: payload.authencationCode,
+                isAuthenticated: true,
+                loading: false
+            };
+        case REGISTR_FAIL:
+        case REGISTR_SUCCESS:
+        case LOGIN_FAIL:
+        case AUTH_ERROR:
+        case LOGOUT:
+            localStorage.removeItem('token');
+            return {
+                ...state,
+                token: null,
+                isAuthenticated: false,
+                loading: false,
+                user: null
+            };
+        case USER_LOADED:
+            return {
+                ...state,
+                user: payload
+            }
         default:
             return state;
     }

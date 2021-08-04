@@ -8,24 +8,25 @@ import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import InputGroup from 'react-bootstrap/InputGroup';
 
+import {register} from '../../action/auth';
 import './signup.css';
 
-const Signup = () => {
+const Signup = ({register}) => {
 
     const [formData, setFormData] = useState({
         email: '',
         password: '',
         name: '',
-        date: ''
+        dob: ''
     });
 
-    const { email, password, name, date } = formData;
+    const { email, password, name, dob } = formData;
 
     const onChange = e => setFormData({...formData, [e.target.name]: e.target.value});
 
     const onSubmit = async e => {
         e.preventDefault();
-        //login(email, password);
+        register(name, email, password, dob)
         console.log(formData)
     };
 
@@ -74,8 +75,8 @@ const Signup = () => {
                     <Form.Label>Date of Birth</Form.Label>
                     <Form.Control 
                         type="date" 
-                        name="date" 
-                        value={date}
+                        name="dob" 
+                        value={dob}
                         onChange={e => onChange(e)}
                         required
                         />
@@ -91,4 +92,4 @@ const Signup = () => {
     )
 }
 
-export default Signup;
+export default connect(null, {register})(Signup);

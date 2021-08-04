@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const instance = axios.create({
-    baseURL: 'https://portfolio-3a40a-default-rtdb.asia-southeast1.firebasedatabase.app/'
+    baseURL: 'http://localhost:8080/expenseTracker_war_exploded/'
 });
 
 export default instance;

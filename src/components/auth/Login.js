@@ -1,15 +1,16 @@
 import React, {Fragment, useState} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
+import {login} from '../../action/auth';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 
 import './login.css';
 
-const Login = () => {
+const Login = ({login, isAuthenticated}) => {
 
     const [formData, setFormData] = useState({
         email: '',
@@ -22,20 +23,19 @@ const Login = () => {
 
     const onSubmit = async e => {
         e.preventDefault();
-        //login(email, password);
-        console.log(formData)
+        login(email, password);
     };
 
-    // //Redirect if logged in
-    // if(isAuthenticated){
-    //     return <Redirect to='/dashboard' />;
-    // }
+    //Redirect if logged in
+    if(isAuthenticated){
+        return <Redirect to='/dashboard' />;
+    }
 
     return (
         <Container className="loginform">
-            <Form className="formI" onSubmit={onSubmit}>
+            <Form className="formI">
                 <h1 className="formName">Log In</h1>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Group className="mb-1" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
                     <Form.Control 
                         type="email" 
@@ -62,7 +62,7 @@ const Login = () => {
                         required
                         />
                 </Form.Group>
-                <Button variant="primary" type="submit">
+                <Button variant="primary" type="submit" onClick={onSubmit}>
                     Submit
                 </Button>
                 <p className="my-3" >
@@ -81,5 +81,5 @@ const mapStateToProps = state => ({
     isAuthenticated: state.auth.isAuthenticated
 })
 
-//export default connect(mapStateToProps, {login})(Login);
-export default Login;
+export default connect(mapStateToProps, {login})(Login);
+//export default Login;
