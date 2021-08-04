@@ -1,0 +1,19 @@
+.loginform {
+    position: absolute;
+    width: 100%;
+    top: 13rem;
+    z-index: 1;
+    margin-top: auto;
+    margin-left: 550px;
+    text-align: center;
+  }
+
+.formI{
+    width: 400px;
+}
+
+.formName{
+    margin-bottom: 20px;
+    font-size: 44px;
+    color: #5755e6;
+}
