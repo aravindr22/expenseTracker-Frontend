@@ -1,0 +1,39 @@
+.logo {
+    width: 25%;
+    
+}
+
+.name{
+  font-size: 1.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  user-select: none;
+  color: black !important;
+}
+
+.nav-theme {
+  font-size: 20px;
+  background-color: var(--alt-bg-color);
+  /* box-shadow: 1px 2px #888888; */
+}
+
+.nav-link{
+  text-decoration: none !important;
+  color: black !important;
+  cursor: pointer;
+  user-select: none;
+}
+
+.animate-navbar {
+  box-shadow: 1px 2px 10px #a10913;
+  animation: moveDown 0.5s ease-in-out;
+}
+
+@keyframes moveDown {
+  from {
+    transform: translateY(-5rem);
+  }
+  to {
+    transform: translateY(0rem);
+  }
+}

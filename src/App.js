@@ -7,13 +7,13 @@ import store from './store';
 import Landing from './components/landing/Landing';
 import Login from './components/auth/Login';
 import Signup from './components/auth/Signup';
-import Navbar from './components/landing/Navbar';
+import NavbarC from './components/landing/NavbarC';
 
 function App() {
   return (
     <Provider store={store}>
       <Router>
-        <Navbar />
+        <NavbarC />
         <Route exact path="/" component={Landing} />
         <Switch>
           <Route exact path="/login" component={Login} />
