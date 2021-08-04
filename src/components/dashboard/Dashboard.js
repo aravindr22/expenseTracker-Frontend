@@ -1,5 +1,6 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {connect} from 'react-redux';
+import {Redirect} from 'react-router-dom';
 import {Container, Row, Col, Image} from 'react-bootstrap';
 
 import Spinner from './Spinner';
@@ -9,13 +10,23 @@ import "./dashboard.css";
 
 const Dashboard = ({fetchTransactionStats, user, transaction, Uloading}) => {
     
+    const [detailedT, setdetailedT] = useState(false);
+
     useEffect(() => {
-        loadUSer();
         fetchTransactionStats();
     },[fetchTransactionStats]);
 
+    const detailedTrans = () => {
+        setdetailedT(true);
+    }
+
+
     if(Uloading){
         return <Spinner />;
+    }
+
+    if(detailedT){
+        return <Redirect to="/transaction" />;
     }
 
     return (
@@ -32,6 +43,21 @@ const Dashboard = ({fetchTransactionStats, user, transaction, Uloading}) => {
                         <h4>Name: {user.name}</h4>
                         <h4>Email : {user.email}</h4>
                         <h4>DOB   : {user.dob}</h4>
+                    </Col>
+                </Row>
+            </Container>
+            <Container className="dashboardTransactionContainer">
+                <Row>
+                    <Col className="dashboardTransactionDetails">
+                        <h4>Transaction Details:</h4>
+                    </Col>
+                </Row>
+                <Row className="dashboardTransactionCount">
+                    <Col xs={6} className="dashboardTransactionCountDetails">
+                        <h5>Total Transaction Count: {transaction.transactionCount} </h5>
+                    </Col>
+                    <Col className="dashboardTransactionCountMore">
+                        <p onClick={detailedTrans}>{'>>'} Click to view Detailed Transaction</p>
                     </Col>
                 </Row>
             </Container>

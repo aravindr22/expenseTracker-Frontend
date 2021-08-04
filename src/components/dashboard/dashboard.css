@@ -7,7 +7,7 @@
     width: 75%;
     padding: 10px 0;
     border-radius: 8px;
-    box-shadow: 10px 10px 25px -1px rgba(0,0,0,0.5);
+    box-shadow: 10px 10px 25px -1px rgba(87, 85, 230,0.5);
 }
 
 .dashboardImage{
@@ -23,4 +23,31 @@
 
 .dashboardPersonalDetail h4{
     margin: 15px 0px;
+}
+
+.dashboardTransactionContainer{
+    margin-top: 40px;
+    width: 75%;
+    padding: 10px 0;
+    border-radius: 8px;
+    box-shadow: 10px 10px 25px -1px rgba(87, 85, 230,0.5);
+}
+
+.dashboardTransactionDetails{
+    margin-top: 10px;
+    margin-left: 20px;
+} 
+
+.dashboardTransactionCount{
+    margin-top: 10px;
+    margin-left: 8px;
+}
+
+.dashboardTransactionCountDetails{
+
+}
+
+.dashboardTransactionCountMore{
+    margin-left: 200px !important;
+    cursor: pointer;
 }

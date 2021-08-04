@@ -13,7 +13,10 @@ const NavbarC = ({isAuthenticated, token, logout}) => {
         <Fragment>
             <Container>
                 <Navbar collapseOnSelect fixed="top" expand="lg" variant="dark" className="animate-navbar nav-theme justify-content-between">
-                    <Navbar.Brand className="name" href="/">Expense Tracker</Navbar.Brand>
+                    {isAuthenticated?
+                        <Navbar.Brand className="name">Expense Tracker</Navbar.Brand>:
+                        <Navbar.Brand className="name" href="/">Expense Tracker</Navbar.Brand>
+                    }
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="ml-auto">

@@ -10,6 +10,7 @@ import Signup from './components/auth/Signup';
 import NavbarC from './components/landing/NavbarC';
 import Alert from './components/Alert/Alert';
 import Dashboard from './components/dashboard/Dashboard';
+import Transaction from './components/transaction/Transaction';
 
 import Privateroute from './components/routing/Privateroute';
 import {loadUSer} from './action/auth';
@@ -35,6 +36,7 @@ const App = () => {
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />
           <Privateroute exact path="/dashboard" component={Dashboard} />
+          <Privateroute exact path="/transaction" component={Transaction} />
         </Switch>
       </Router>
     </Provider>
