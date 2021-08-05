@@ -14,16 +14,12 @@ const Dashboard = ({fetchTransactionStats, user, transaction, Uloading, isAuthen
     const [expenseC, setexpenseC] = useState(false);
     const [incomeC, setIncomeC] = useState(false);
 
-    useEffect(() => {
-        fetchTransactionStats();
-    },[fetchTransactionStats]);
-
     const detailedTrans = () => {
         setdetailedT(true);
     }
 
 
-    if(Uloading || !isAuthenticated){
+    if(Uloading || !isAuthenticated || transaction.loading){
         return <Spinner />;
     }
 

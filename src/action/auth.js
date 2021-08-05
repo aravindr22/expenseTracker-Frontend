@@ -1,6 +1,7 @@
 import axios from '../axios-base';
 import {setAlert} from './alert';
 import setAuthToken from '../utils/setAuthToken';
+import {fetchTransactionStats} from '../action/transaction';
 
 import {
     LOGIN_SUCCESS,
@@ -29,7 +30,7 @@ export const loadUSer = () => async dispatch => {
             type: USER_LOADED,
             payload: res.data
         });
-        
+        dispatch(fetchTransactionStats());
     } catch (err) {
         dispatch({
             type: AUTH_ERROR
