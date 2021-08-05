@@ -94,12 +94,12 @@ const Dashboard = ({fetchTransactionStats, user, transaction, Uloading, isAuthen
                 <Row>
                     <Col xs={6} className="dashboardSubCategoriesDetails">
                         <h4>Income Category</h4>
-                        <p>Category Count: {user.expenseCategory.length}</p>
+                        <p>Category Count: {user.incomeCategory.length}</p>
                         <p onClick={() => setIncomeC(true)} style={{cursor: "pointer"}}>More Details {'>>'}</p>
                     </Col>
                     <Col xs={6} className="dashboardSubCategoriesDetails">
                         <h4>Expense Category</h4>
-                        <p>Category Count: {user.incomeCategory.length}</p>
+                        <p>Category Count: {user.expenseCategory.length}</p>
                         <p onClick={() => setexpenseC(true)} style={{cursor: "pointer"}}>More Details {'>>'}</p>
                     </Col>
                 </Row>

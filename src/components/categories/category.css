@@ -1,20 +1,20 @@
-.incomeCategoryContainer{
+.incomeCategoryContainer, .expenseCategoryContainer{
     width: 75%;
     padding: 10px 0;
     border-radius: 8px;
     box-shadow: 10px 10px 25px -1px rgba(87, 85, 230,0.5);
 }
 
-.incomeCategoryTableHeading{
+.incomeCategoryTableHeading, .expenseCategoryTableHeading{
     margin-bottom: 10px;
 }
 
-.incomeCategoryTable{
+.incomeCategoryTable, .expenseCategoryTable{
     margin-left: 20px;
     margin-bottom: 10px;
 }
 
-.incomeCategoryContainerHeading{
+.incomeCategoryContainerHeading, .expenseCategoryContainerHeading{
     margin-left: 450px;
     margin-top: 10px;
     margin-bottom: 20px;

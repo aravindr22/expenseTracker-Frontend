@@ -35,7 +35,7 @@ const Incomecategory = ({auth: {loading, isAuthenticated, user}}) => {
             <Container className="incomeCategoryContainer">
                 <Row>
                     <Col>
-                        <h4 className="incomeCategoryContainerHeading">Incomecategory</h4>
+                        <h4 className="incomeCategoryContainerHeading">Income Category</h4>
                     </Col>                    
                 </Row>
                 <Row>
@@ -63,7 +63,7 @@ const Incomecategory = ({auth: {loading, isAuthenticated, user}}) => {
                         </Col>
                         <Col>
                             <Form>
-                                <Form.Group className="mb-1" controlId="formBasicEmail">
+                                <Form.Group className="mb-1">
                                     <Form.Control 
                                         style={{width: "75%"}}
                                         type="text" 
