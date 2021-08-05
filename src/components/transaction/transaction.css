@@ -1,6 +1,6 @@
 .gotoDashboard{
     margin-top: 80px;
-    margin-left: 175px;
+    margin-left: 200px;
     cursor: pointer;
 }
 .transactionContainer{
@@ -26,7 +26,7 @@
 
 .transactionButtonGroup{
     margin-top: 25px;
-    margin-left: 400px;
+    margin-left: 460px;
 }
 
 .transactionButtonGroupButton{
@@ -37,5 +37,9 @@
 }
 
 .transactionButtonGroup, Button:hover{
-    border-radius: 10px rgba(87, 85, 230);
+    border-radius: 1px rgba(87, 85, 230);
+}
+
+.transactionHeading{
+    margin-left: 450px;
 }

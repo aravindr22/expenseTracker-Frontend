@@ -18,8 +18,11 @@ const Dashboard = ({fetchTransactionStats, user, transaction, Uloading, isAuthen
         setdetailedT(true);
     }
 
-
-    if(Uloading || !isAuthenticated || transaction.loading){
+    if(!isAuthenticated){
+        return <Redirect to="/" />;
+    }
+    
+    if(Uloading || transaction.loading || !isAuthenticated){
         return <Spinner />;
     }
 
@@ -28,7 +31,7 @@ const Dashboard = ({fetchTransactionStats, user, transaction, Uloading, isAuthen
     }else if(incomeC){
         return <Redirect to="/expenseCategory" />;
     }else if(expenseC){
-        return <Redirect to="/incomeCategory/" />;
+        return <Redirect to="/incomeCategory" />;
     }
 
     return (

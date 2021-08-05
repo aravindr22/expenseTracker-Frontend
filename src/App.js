@@ -11,6 +11,8 @@ import NavbarC from './components/landing/NavbarC';
 import Alert from './components/Alert/Alert';
 import Dashboard from './components/dashboard/Dashboard';
 import Transaction from './components/transaction/Transaction';
+import Incomecategory from './components/categories/Incomecategory';
+import Expensecategory from './components/categories/Expensecategory';
 
 import Privateroute from './components/routing/Privateroute';
 import {loadUSer} from './action/auth';
@@ -37,6 +39,8 @@ const App = () => {
           <Route exact path="/signup" component={Signup} />
           <Privateroute exact path="/dashboard" component={Dashboard} />
           <Privateroute exact path="/transaction" component={Transaction} />
+          <Privateroute exact path="/incomeCategory" component={Incomecategory} />
+          <Privateroute exact path="/expenseCategory" component={Expensecategory} />
         </Switch>
       </Router>
     </Provider>
