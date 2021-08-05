@@ -79,8 +79,8 @@ const Transaction = ({fetchTransactionListByPage, resetPageDetails, transaction}
                 <Row>
                     <Col>
                         <ButtonGroup className="transactionButtonGroup">
-                            <Button onClick={previousPage}>{"< "}Previous</Button> 
-                            <Button onClick={nextPage}>Next{" >"}</Button>
+                            <Button className="transactionButtonGroupButton" onClick={previousPage}>{"< "}Previous</Button> 
+                            <Button className="transactionButtonGroupButton" onClick={nextPage}>Next{" >"}</Button>
                         </ButtonGroup>
                     </Col>
                 </Row>

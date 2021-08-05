@@ -57,6 +57,7 @@ export const login = (email, password) => async dispatch => {
             payload: res.data
         });
         dispatch(loadUSer());
+        dispatch(setAlert("Login Success", "success"));
     } catch(err) {
         console.log(err)
         const errors = err.response.data.errors;
@@ -74,7 +75,7 @@ export const login = (email, password) => async dispatch => {
 export const logout = () => async dispatch => {
     try {
         const res = await axios.get('/api/auth/logout');
-        setAlert(res.data.message, "success");
+        dispatch(setAlert(res.data.message, "success"));
         dispatch({
             type: LOGOUT
         });
@@ -103,7 +104,7 @@ export const register = (name, email, password, dob) => async dispatch => {
     console.log(body);
     try {
         const res = await axios.post('/api/auth/register', body, config);
-        setAlert(res.data.message, "success");
+        dispatch(setAlert(res.data.message, "success"));
         dispatch({
             type: REGISTR_SUCCESS
         });
