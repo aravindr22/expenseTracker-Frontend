@@ -33,7 +33,7 @@
     box-shadow: 10px 10px 25px -1px rgba(87, 85, 230,0.5);
 }
 
-.dashboardTransactionDetails{
+.dashboardTransactionDetails, .dashboardChartDetails{
     margin-top: 10px;
     margin-left: 20px;
 } 
@@ -50,4 +50,24 @@
 .dashboardTransactionCountMore{
     margin-left: 200px !important;
     cursor: pointer;
+}
+
+.dashboardPieChartContainer{
+    margin-top: 40px;
+    width: 75%;
+    height: 285px;
+    padding: 10px 0;
+    border-radius: 8px;
+    /* background-color: gray; */
+    box-shadow: 10px 10px 25px -1px rgba(87, 85, 230,0.5);
+}
+
+.dashboardPieChart{
+    height: 210px;
+    width: 210px;
+    margin-left: 100px;
+}
+
+.dashboardChartDetails{
+    
 }

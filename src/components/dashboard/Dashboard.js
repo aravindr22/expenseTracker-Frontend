@@ -3,9 +3,9 @@ import {connect} from 'react-redux';
 import {Redirect} from 'react-router-dom';
 import {Container, Row, Col, Image} from 'react-bootstrap';
 
+import Piechart from './chart/Piechart';
 import Spinner from './Spinner';
 import {fetchTransactionStats} from '../../action/transaction';
-import {loadUSer} from '../../action/auth';
 import "./dashboard.css";
 
 const Dashboard = ({fetchTransactionStats, user, transaction, Uloading}) => {
@@ -43,6 +43,25 @@ const Dashboard = ({fetchTransactionStats, user, transaction, Uloading}) => {
                         <h4>Name: {user.name}</h4>
                         <h4>Email : {user.email}</h4>
                         <h4>DOB   : {user.dob}</h4>
+                    </Col>
+                </Row>
+            </Container>
+            <Container className="dashboardPieChartContainer">
+                <Row>
+                    <Col className="dashboardChartDetails">
+                        <h4>Account Statement:</h4>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col xs={6}>
+                        <div className="dashboardPieChart">
+                            <Piechart  transaction={transaction} />
+                        </div>
+                    </Col>
+                    <Col xs={6} className="chartDetails">
+                        <h4>Income  : {transaction.income}</h4>
+                        <h4>Expense: {transaction.expense}</h4>
+                        <h4>Balance  : {transaction.balance}</h4>
                     </Col>
                 </Row>
             </Container>

@@ -9,10 +9,15 @@ import {logout} from '../../action/auth';
 import './navbar.css';
 
 const NavbarC = ({isAuthenticated, token, logout}) => {
+    let navClass = ["animate-navbar", "nav-theme", "justify-content-between"];
+    if(isAuthenticated){
+        navClass.push("wbg");
+    }
+
     return (
         <Fragment>
             <Container>
-                <Navbar collapseOnSelect fixed="top" expand="lg" variant="dark" className="animate-navbar nav-theme justify-content-between">
+                <Navbar collapseOnSelect fixed="top" expand="lg" variant="dark" className={navClass.join(" ")}>
                     {isAuthenticated?
                         <Navbar.Brand className="name">Expense Tracker</Navbar.Brand>:
                         <Navbar.Brand className="name" href="/">Expense Tracker</Navbar.Brand>
