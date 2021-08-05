@@ -3,10 +3,11 @@ import {Container, Row, Col, ListGroup, Form, Button} from 'react-bootstrap';
 import {connect} from 'react-redux';
 import {Redirect} from 'react-router-dom';
 
+import {addExpenseCategory} from '../../action/auth';
 import Spinner from '../dashboard/Spinner';
 import './category.css';
 
-const Expensecategory = ({auth: {loading, isAuthenticated, user}}) => {
+const Expensecategory = ({auth: {loading, isAuthenticated, user}, addExpenseCategory}) => {
     const [goToDashboard, setGoToDashboard] = useState(false);
     const [categoryName, setcategoryName] = useState("");
 
@@ -14,7 +15,7 @@ const Expensecategory = ({auth: {loading, isAuthenticated, user}}) => {
 
     const submitCName = () => {
         if(categoryName.trim().length !== 0){
-            console.log(categoryName)
+            addExpenseCategory(categoryName.trim());
         }
     }
 
@@ -91,4 +92,4 @@ const mapStateToProps = state => ({
     auth: state.auth
 })
 
-export default connect(mapStateToProps, {})(Expensecategory);
+export default connect(mapStateToProps, {addExpenseCategory})(Expensecategory);

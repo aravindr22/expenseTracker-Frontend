@@ -12,7 +12,12 @@ import {
     REGISTR_SUCCESS,
     REGISTR_FAIL,
     START_OPERATION,
-    TRANSACTION_FAIL
+    TRANSACTION_FAIL,
+    ADD_INCOME_CATEGORY,
+    GET_INCOME_CATEGORY,
+    ADD_EXPENSE_CATEGORY,
+    GET_EXPENSE_CATEGORY,
+    END_OPERATION
 } from './types';
 
 //Load User
@@ -102,7 +107,6 @@ export const register = (name, email, password, dob) => async dispatch => {
     }
 
     const body = JSON.stringify({name, email, password, dob});
-    console.log(body);
     try {
         const res = await axios.post('/api/auth/register', body, config);
         dispatch(setAlert(res.data.message, "success"));
@@ -120,5 +124,53 @@ export const register = (name, email, password, dob) => async dispatch => {
         dispatch({
             type: REGISTR_FAIL
         });
+    }
+}
+
+export const addIncomeCategory = (categoryName) => async dispatch => {
+    dispatch({
+        type: START_OPERATION
+    });
+    const config = {
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }
+
+    const body = JSON.stringify({name: categoryName});
+    try{
+        await axios.post("/api/user/incomeCategory", body, config);
+        dispatch(setAlert("The category is added successfully", "success"));
+        dispatch({
+            type: END_OPERATION
+        })
+    } catch(err){
+        dispatch({
+            type: END_OPERATION
+        })
+    }
+}
+
+export const addExpenseCategory = (categoryName) => async dispatch => {
+    dispatch({
+        type: START_OPERATION
+    });
+    const config = {
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }
+
+    const body = JSON.stringify({name: categoryName});
+    try{
+        await axios.post("/api/user/expenseCategory", body, config);
+        dispatch(setAlert("The category is added successfully", "success"));
+        dispatch({
+            type: END_OPERATION
+        })
+    } catch(err){
+        dispatch({
+            type: END_OPERATION
+        })
     }
 }

@@ -6,7 +6,8 @@ import {
     USER_LOADED,
     REGISTR_SUCCESS,
     REGISTR_FAIL,
-    START_OPERATION
+    START_OPERATION,
+    END_OPERATION
 } from '../action/types';
 
 const initialState = {
@@ -49,6 +50,11 @@ export default function auth(state = initialState, action){
             return {
                 ...state,
                 user: payload,
+                loading: false
+            }
+        case END_OPERATION:
+            return {
+                ...state,
                 loading: false
             }
         default:

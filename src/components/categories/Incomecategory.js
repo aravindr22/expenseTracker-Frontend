@@ -3,10 +3,11 @@ import {Container, Row, Col, ListGroup, Form, Button} from 'react-bootstrap';
 import {connect} from 'react-redux';
 import {Redirect} from 'react-router-dom';
 
+import {addIncomeCategory} from '../../action/auth';
 import Spinner from '../dashboard/Spinner';
 import './category.css';
 
-const Incomecategory = ({auth: {loading, isAuthenticated, user}}) => {
+const Incomecategory = ({auth: {loading, isAuthenticated, user}, addIncomeCategory}) => {
     const [goToDashboard, setGoToDashboard] = useState(false);
     const [categoryName, setcategoryName] = useState("");
 
@@ -14,7 +15,7 @@ const Incomecategory = ({auth: {loading, isAuthenticated, user}}) => {
 
     const submitCName = () => {
         if(categoryName.trim().length !== 0){
-            console.log(categoryName)
+            addIncomeCategory(categoryName.trim());
         }
     }
 
@@ -90,4 +91,4 @@ const mapStateToProps = state => ({
     auth: state.auth
 })
 
-export default connect(mapStateToProps, {})(Incomecategory);
+export default connect(mapStateToProps, {addIncomeCategory})(Incomecategory);
