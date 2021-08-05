@@ -17,6 +17,7 @@ import {
     GET_INCOME_CATEGORY,
     ADD_EXPENSE_CATEGORY,
     GET_EXPENSE_CATEGORY,
+    FETCH_ALL_CATEGORY,
     END_OPERATION
 } from './types';
 
@@ -144,6 +145,7 @@ export const addIncomeCategory = (categoryName) => async dispatch => {
         dispatch({
             type: END_OPERATION
         })
+        dispatch(fetchAllCategory());
     } catch(err){
         dispatch({
             type: END_OPERATION
@@ -168,7 +170,25 @@ export const addExpenseCategory = (categoryName) => async dispatch => {
         dispatch({
             type: END_OPERATION
         })
+        dispatch(fetchAllCategory());
     } catch(err){
+        dispatch({
+            type: END_OPERATION
+        })
+    }
+}
+
+export const fetchAllCategory = () => async dispatch => {
+    dispatch({
+        type: START_OPERATION
+    });
+    try{
+        const res = await axios.get("/api/user/categories");
+        dispatch({
+            type: FETCH_ALL_CATEGORY,
+            payload: res.data
+        })
+    }catch(err){
         dispatch({
             type: END_OPERATION
         })

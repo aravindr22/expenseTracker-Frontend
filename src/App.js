@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import {connect} from 'react-redux';
 
 import {Provider} from 'react-redux';
 import store from './store';
@@ -22,11 +23,11 @@ if(localStorage.token){
   setAuthToken(localStorage.token);
 }
 
-const App = () => {
+const App = ({loadUSer}) => {
 
   useEffect(() => {
     loadUSer();
-  }, []);
+  }, [loadUSer]);
 
   return (
     <Provider store={store}>
@@ -47,4 +48,4 @@ const App = () => {
   );
 }
 
-export default App;
+export default connect(null, {loadUSer})(App);

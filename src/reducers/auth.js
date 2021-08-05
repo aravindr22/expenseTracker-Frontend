@@ -7,7 +7,8 @@ import {
     REGISTR_SUCCESS,
     REGISTR_FAIL,
     START_OPERATION,
-    END_OPERATION
+    END_OPERATION,
+    FETCH_ALL_CATEGORY
 } from '../action/types';
 
 const initialState = {
@@ -51,6 +52,16 @@ export default function auth(state = initialState, action){
                 ...state,
                 user: payload,
                 loading: false
+            }
+        case FETCH_ALL_CATEGORY:
+            const {expenseCategory, incomeCategory} = payload;
+            return {
+                ...state,
+                loading: false,
+                user: {
+                    expenseCategory: expenseCategory,
+                    incomeCategory: incomeCategory
+                }
             }
         case END_OPERATION:
             return {
