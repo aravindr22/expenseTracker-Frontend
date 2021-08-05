@@ -4,7 +4,7 @@ import {
 } from './types';
 
 export const setAlert = (msg, alertType, timeout = 4000) => dispatch => {
-    const id = Math.floor(Math.random()*100000);
+    const id = Math.floor(Math.random()*10000000);
     dispatch({
         type: SET_ALERT,
         payload: { msg, alertType, id }

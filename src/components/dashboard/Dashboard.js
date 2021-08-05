@@ -29,9 +29,9 @@ const Dashboard = ({fetchTransactionStats, user, transaction, Uloading, isAuthen
     if(detailedT){
         return <Redirect to="/transaction" />;
     }else if(incomeC){
-        return <Redirect to="/expenseCategory" />;
-    }else if(expenseC){
         return <Redirect to="/incomeCategory" />;
+    }else if(expenseC){
+        return <Redirect to="/expenseCategory" />;        
     }
 
     return (
