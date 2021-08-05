@@ -1,0 +1,41 @@
+.gotoDashboard{
+    margin-top: 80px;
+    margin-left: 175px;
+    cursor: pointer;
+}
+.transactionContainer{
+    width: 75%;
+    padding: 10px 0;
+    border-radius: 8px;
+    box-shadow: 10px 10px 25px -1px rgba(87, 85, 230,0.5);
+}
+
+.transactionHeading{
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+.transactionListHeading{
+    margin-bottom: 10px;
+}
+
+.pageno{
+    margin: 0;
+    margin-left: 10px;
+}
+
+.transactionButtonGroup{
+    margin-top: 25px;
+    margin-left: 400px;
+}
+
+.transactionButtonGroup, Button{
+    background-color: white !important;
+    color: #000 !important;
+    border: none !important;
+    box-shadow: 10px 10px 20px -1px rgba(87, 85, 230,0.2);
+}
+
+.transactionButtonGroup, Button:hover{
+    border-radius: 10px rgba(87, 85, 230);
+}

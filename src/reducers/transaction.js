@@ -1,14 +1,16 @@
 import {
     FETCH_TRANSACTION_LIST,
     FETCH_TRANSACTION_STATS,
-    TRANSACTION_FAIL
+    TRANSACTION_FAIL,
+    RESET_PAGE
 } from '../action/types';
 
 const initialState = {
     income: 0,
     expense: 0,
     balance: 0,
-    page: 1,
+    page: 0,
+    nextPage: 1,
     transactionCount: 0,
     transactions: [],
     lastPage: false,
@@ -35,6 +37,8 @@ export default function transaction(state = initialState, action){
             return {
                 ...state,
                 lastPage: val,
+                page: payload.page,
+                nextPage: payload.page+1,
                 transactions: payload.transactions,
                 loading: false
             }
@@ -45,8 +49,17 @@ export default function transaction(state = initialState, action){
                 income: 0,
                 balance: 0,
                 transactions: [],
-                page: 1,
+                page: 0,
+                nextPage: 1,
                 transactionCount: 0,
+                lastPage: false
+            }
+        case RESET_PAGE:
+            return {
+                ...state,
+                transactions: [],
+                page: 0,
+                nextPage: 1,
                 lastPage: false
             }
         default:

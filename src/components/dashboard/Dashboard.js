@@ -23,7 +23,7 @@ const Dashboard = ({fetchTransactionStats, user, transaction, Uloading, isAuthen
     }
 
 
-    if(Uloading || !isAuthenticated || transaction.loading){
+    if(Uloading || !isAuthenticated){
         return <Spinner />;
     }
 
