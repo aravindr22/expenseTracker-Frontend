@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react'
 import {Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 import Moment from 'react-moment';
-import {Container, Row, Col, ListGroup, ButtonGroup, Button} from 'react-bootstrap';
+import {Container, Row, Col, ListGroup, ButtonGroup, Button, Form} from 'react-bootstrap';
 
 import Spinner from '../dashboard/Spinner';
 import {fetchTransactionListByPage, resetPageDetails} from  '../../action/transaction';
@@ -84,7 +84,7 @@ const Transaction = ({fetchTransactionListByPage, resetPageDetails, transaction}
                         </ButtonGroup>
                     </Col>
                 </Row>
-            </Container>
+            </Container>            
         </div>
     )
 }

@@ -1,0 +1,41 @@
+.addtransactioncontainer{
+    width: 75%;
+    padding: 10px 0;
+    border-radius: 8px;
+    box-shadow: 10px 10px 25px -1px rgba(87, 85, 230,0.5);
+}
+
+.addtransactionContainerHeading{
+    margin-left: 470px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.common-design{
+    border: .2px solid grey;
+    padding: 8px 22px;
+    margin-bottom: 20px;
+    border-radius: 2px;
+}
+
+.selectoption1{
+    margin-left: 41%;
+}
+
+.selectoption2{
+    margin-left: 40.9%;
+}
+
+.amountOption{
+    margin-left: 39.6%;
+}
+
+.descriptionOption{
+    padding: 8px 40px;
+    margin-left: 38%;
+}
+
+.buttonOption{
+    margin-left: 46.5%;
+    margin-bottom: 25px;
+}

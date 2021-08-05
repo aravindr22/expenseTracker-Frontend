@@ -52,6 +52,10 @@
     cursor: pointer;
 }
 
+.dashboardTransactionCountAdd{
+    cursor: pointer;
+}
+
 .dashboardPieChartContainer{
     margin-top: 40px;
     width: 75%;

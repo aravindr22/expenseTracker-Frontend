@@ -10,9 +10,18 @@
     box-shadow: 10px 10px 25px -1px rgba(87, 85, 230,0.5);
 }
 
+.transactionContainer2{
+    margin-top: 40px;
+    width: 75%;
+    padding: 10px 0;
+    border-radius: 8px;
+    box-shadow: 10px 10px 25px -1px rgba(87, 85, 230,0.5);
+}
+
 .transactionHeading{
     margin: auto;
     margin-bottom: 10px;
+    margin-left: 450px;
 }
 
 .transactionListHeading{
@@ -38,8 +47,4 @@
 
 .transactionButtonGroup, Button:hover{
     border-radius: 1px rgba(87, 85, 230);
-}
-
-.transactionHeading{
-    margin-left: 450px;
 }

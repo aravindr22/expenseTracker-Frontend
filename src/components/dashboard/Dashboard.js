@@ -13,6 +13,7 @@ const Dashboard = ({fetchTransactionStats, user, transaction, Uloading, isAuthen
     const [detailedT, setdetailedT] = useState(false);
     const [expenseC, setexpenseC] = useState(false);
     const [incomeC, setIncomeC] = useState(false);
+    const [addTrans, setaddTrans] = useState(false);
 
     const detailedTrans = () => {
         setdetailedT(true);
@@ -25,13 +26,15 @@ const Dashboard = ({fetchTransactionStats, user, transaction, Uloading, isAuthen
     if(Uloading || transaction.loading || !isAuthenticated){
         return <Spinner />;
     }
-
+    console.log(addTrans)
     if(detailedT){
         return <Redirect to="/transaction" />;
     }else if(incomeC){
         return <Redirect to="/incomeCategory" />;
     }else if(expenseC){
         return <Redirect to="/expenseCategory" />;        
+    }else if(addTrans){
+        return <Redirect to="/addtransaction" />;        
     }
 
     return (
@@ -79,6 +82,11 @@ const Dashboard = ({fetchTransactionStats, user, transaction, Uloading, isAuthen
                 <Row className="dashboardTransactionCount">
                     <Col xs={6} className="dashboardTransactionCountDetails">
                         <h5>Total Transaction Count: {transaction.transactionCount} </h5>
+                    </Col>
+                </Row>
+                <Row className="dashboardTransactionCount">
+                    <Col xs={6} className="dashboardTransactionCountAdd">
+                        <p onClick={() => setaddTrans(true)}>{'+ '} Add Transaction</p>
                     </Col>
                     <Col className="dashboardTransactionCountMore">
                         <p onClick={detailedTrans}>{'>>'} Click to view Detailed Transaction</p>

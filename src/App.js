@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, Fragment} from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import {connect} from 'react-redux';
 
@@ -14,8 +14,8 @@ import Dashboard from './components/dashboard/Dashboard';
 import Transaction from './components/transaction/Transaction';
 import Incomecategory from './components/categories/Incomecategory';
 import Expensecategory from './components/categories/Expensecategory';
+import AddTransaction from './components/transaction/AddTransaction';
 
-import Privateroute from './components/routing/Privateroute';
 import {loadUSer} from './action/auth';
 import setAuthToken from './utils/setAuthToken';
 
@@ -30,7 +30,7 @@ const App = ({loadUSer}) => {
   }, [loadUSer]);
 
   return (
-    <Provider store={store}>
+    <Fragment>
       <Router>
         <NavbarC />
         <Alert />
@@ -38,13 +38,14 @@ const App = ({loadUSer}) => {
         <Switch>
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />
-          <Privateroute exact path="/dashboard" component={Dashboard} />
-          <Privateroute exact path="/transaction" component={Transaction} />
-          <Privateroute exact path="/incomeCategory" component={Incomecategory} />
-          <Privateroute exact path="/expenseCategory" component={Expensecategory} />
+          <Route exact path="/dashboard" component={Dashboard} />
+          <Route exact path="/transaction" component={Transaction} />
+          <Route exact path="/incomeCategory" component={Incomecategory} />
+          <Route exact path="/expenseCategory" component={Expensecategory} />
+          <Route exact path="/addtransaction" component={AddTransaction} />
         </Switch>
       </Router>
-    </Provider>
+    </Fragment>
   );
 }
 
