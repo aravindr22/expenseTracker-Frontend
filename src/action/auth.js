@@ -10,11 +10,15 @@ import {
     LOGOUT,
     REGISTR_SUCCESS,
     REGISTR_FAIL,
+    START_OPERATION,
     TRANSACTION_FAIL
 } from './types';
 
 //Load User
 export const loadUSer = () => async dispatch => {
+    dispatch({
+        type: START_OPERATION
+    });
     if(localStorage.token){
         setAuthToken(localStorage.token);
     }
@@ -35,6 +39,9 @@ export const loadUSer = () => async dispatch => {
 
 //Login user
 export const login = (email, password) => async dispatch => {
+    dispatch({
+        type: START_OPERATION
+    });
     const config = {
         headers: {
             'Content-Type': 'application/json'

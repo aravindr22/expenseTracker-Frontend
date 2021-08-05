@@ -8,9 +8,11 @@ import Spinner from './Spinner';
 import {fetchTransactionStats} from '../../action/transaction';
 import "./dashboard.css";
 
-const Dashboard = ({fetchTransactionStats, user, transaction, Uloading}) => {
+const Dashboard = ({fetchTransactionStats, user, transaction, Uloading, isAuthenticated}) => {
     
     const [detailedT, setdetailedT] = useState(false);
+    const [expenseC, setexpenseC] = useState(false);
+    const [incomeC, setIncomeC] = useState(false);
 
     useEffect(() => {
         fetchTransactionStats();
@@ -21,12 +23,16 @@ const Dashboard = ({fetchTransactionStats, user, transaction, Uloading}) => {
     }
 
 
-    if(Uloading){
+    if(Uloading || !isAuthenticated || transaction.loading){
         return <Spinner />;
     }
 
     if(detailedT){
         return <Redirect to="/transaction" />;
+    }else if(incomeC){
+        return <Redirect to="/expenseCategory" />;
+    }else if(expenseC){
+        return <Redirect to="/incomeCategory/" />;
     }
 
     return (
@@ -80,12 +86,32 @@ const Dashboard = ({fetchTransactionStats, user, transaction, Uloading}) => {
                     </Col>
                 </Row>
             </Container>
+            <Container className="dashbaordCategoryContainer">
+                <Row>
+                    <Col className="dashboardCategoriesDetails">
+                        <h4>Categories:</h4>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col xs={6} className="dashboardSubCategoriesDetails">
+                        <h4>Income Category</h4>
+                        <p>Category Count: {user.expenseCategory.length}</p>
+                        <p onClick={() => setIncomeC(true)} style={{cursor: "pointer"}}>More Details {'>>'}</p>
+                    </Col>
+                    <Col xs={6} className="dashboardSubCategoriesDetails">
+                        <h4>Expense Category</h4>
+                        <p>Category Count: {user.incomeCategory.length}</p>
+                        <p onClick={() => setexpenseC(true)} style={{cursor: "pointer"}}>More Details {'>>'}</p>
+                    </Col>
+                </Row>
+            </Container>
         </div>
     )
 }
 
 const mapStateToProps = state => ({
     Uloading: state.auth.loading,
+    isAuthenticated: state.auth.isAuthenticated,
     user: state.auth.user,
     transaction: state.transaction
 });
