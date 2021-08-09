@@ -2,7 +2,8 @@ import {
     FETCH_TRANSACTION_LIST,
     FETCH_TRANSACTION_STATS,
     TRANSACTION_FAIL,
-    RESET_PAGE
+    RESET_PAGE,
+    FETCH_STATS_CATEGORY_WISE
 } from '../action/types';
 
 const initialState = {
@@ -12,6 +13,8 @@ const initialState = {
     page: 0,
     nextPage: 1,
     transactionCount: 0,
+    incomeStats: [],
+    expenseStats: [],
     transactions: [],
     lastPage: false,
     loading: true
@@ -61,6 +64,13 @@ export default function transaction(state = initialState, action){
                 page: 0,
                 nextPage: 1,
                 lastPage: false
+            }
+        case FETCH_STATS_CATEGORY_WISE:
+            return {
+                ...state,
+                incomeStats: payload.income,
+                expenseStats: payload.expense,
+                loading: false
             }
         default:
             return state;

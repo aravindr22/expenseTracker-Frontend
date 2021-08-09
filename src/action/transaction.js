@@ -6,7 +6,8 @@ import {
     TRANSACTION_FAIL,
     RESET_PAGE,
     START_OPERATION,
-    END_OPERATION
+    END_OPERATION,
+    FETCH_STATS_CATEGORY_WISE
 } from './types';
 
 export const fetchTransactionStats = () => async dispatch => {
@@ -70,5 +71,25 @@ export const addTransactionData = (type, category, amount, description) => async
             type: END_OPERATION
         })
         dispatch(setAlert("Add transaction is unsuccessfull", "danger"));
+    }
+}
+
+export const fetchCategoryWiseStats = () => async dispatch => {
+    dispatch({
+        type: START_OPERATION
+    });
+    try {
+        const res = await axios.get(`api/transaction/transactionstats`);
+        dispatch({
+            type: FETCH_STATS_CATEGORY_WISE,
+            payload: res.data
+        });
+        dispatch({
+            type: END_OPERATION
+        });
+    } catch (err){
+        dispatch({
+            type: END_OPERATION
+        })
     }
 }

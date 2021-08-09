@@ -14,6 +14,7 @@ const Dashboard = ({fetchTransactionStats, user, transaction, Uloading, isAuthen
     const [expenseC, setexpenseC] = useState(false);
     const [incomeC, setIncomeC] = useState(false);
     const [addTrans, setaddTrans] = useState(false);
+    const [accountC, setaccountC] = useState(false);
 
     const detailedTrans = () => {
         setdetailedT(true);
@@ -35,6 +36,8 @@ const Dashboard = ({fetchTransactionStats, user, transaction, Uloading, isAuthen
         return <Redirect to="/expenseCategory" />;        
     }else if(addTrans){
         return <Redirect to="/addtransaction" />;        
+    } else if(accountC){
+        return <Redirect to="/accountStatement" />
     }
 
     return (
@@ -63,13 +66,18 @@ const Dashboard = ({fetchTransactionStats, user, transaction, Uloading, isAuthen
                 <Row>
                     <Col xs={6}>
                         <div className="dashboardPieChart">
-                            <Piechart  transaction={transaction} />
+                            <Piechart transaction={transaction} />
                         </div>
                     </Col>
                     <Col xs={6} className="chartDetails">
                         <h4>Income  : {transaction.income}</h4>
                         <h4>Expense: {transaction.expense}</h4>
                         <h4>Balance  : {transaction.balance}</h4>
+                    </Col>
+                </Row>
+                <Row className="dashboardPieTransactionCount">
+                    <Col xs={6} className="dashboardTransactionCountAdd">
+                        <p onClick={() => setaccountC(true)}>{'>> '} View Detailed Statement</p>
                     </Col>
                 </Row>
             </Container>

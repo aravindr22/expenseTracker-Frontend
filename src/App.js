@@ -15,6 +15,7 @@ import Transaction from './components/transaction/Transaction';
 import Incomecategory from './components/categories/Incomecategory';
 import Expensecategory from './components/categories/Expensecategory';
 import AddTransaction from './components/transaction/AddTransaction';
+import Account from './components/account/Account';
 
 import {loadUSer} from './action/auth';
 import setAuthToken from './utils/setAuthToken';
@@ -43,6 +44,7 @@ const App = ({loadUSer}) => {
           <Route exact path="/incomeCategory" component={Incomecategory} />
           <Route exact path="/expenseCategory" component={Expensecategory} />
           <Route exact path="/addtransaction" component={AddTransaction} />
+          <Route exact path="/accountStatement" component={Account} />
         </Switch>
       </Router>
     </Fragment>

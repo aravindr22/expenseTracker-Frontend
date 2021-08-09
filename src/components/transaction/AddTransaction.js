@@ -28,7 +28,6 @@ const AddTransaction = ({auth: {isAuthenticated, loading, user}, addTransactionD
     }
     
     const submitDetails = () => {
-        console.log(type2, category, amount, description)
         if(type2.trim().length !== "" && category.trim().length !== "" && amount > 0){
             addTransactionData(type2, category, amount, description);
         }
